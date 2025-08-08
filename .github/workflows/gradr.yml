@@ -5,27 +5,27 @@ on:
     branches:
     - main
 
-jobs:    
+jobs:
   autograde:
     name: Auto-Grade Code Changes
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [20.x]
 
     steps:
     - name: Checkout Your Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Prepare Environment
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-    
+
     - name: Acquire Audits
-      uses: actions/checkout@v2
-      with: 
+      uses: actions/checkout@v4
+      with:
         repository: exam-01-practice/assignment-02-gradr-audits-js
         path: audits
 
@@ -54,11 +54,10 @@ jobs:
 
     - name: Report Audits
       if: always()
-      uses: exam-01-practice/jest-to-sheets@v2
+      uses: oluwasetemi/jest-to-sheets-modified@v1
       with:
         challenge: 'ch-1;ch-2;ch-3'
         lang: javascript
         server: https://api.sheetson.com/v2/sheets
-        sheetid: 1Qb5Ovjy1l2UG94Cht2govguYX5fpCIgoTKPUd2ufMm4
-        token: HXlur8K20ZpoB-6FNsnSUtj2kGoDqCDHDl8vZBdLtQCv9UFOVhMsM2IBwD8
-        
+        sheetid: 1r4jloq3CKH4o6t5VgW-8fuRPkD3MEXP2FUEH6XXTSRs
+        token: rLYJMutJkU2vF4N4V2En3LucORJhZVQ3LmIVbylHcrSowmnBLmsi-nIKPfI
