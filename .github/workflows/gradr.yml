@@ -23,6 +23,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: latest
+
     - name: Acquire Audits
       uses: actions/checkout@v4
       with:
@@ -31,26 +36,25 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        npm install --location=global yarn
         cd audits
-        yarn install
+        bun install
 
     - name: Review Challenge - 1
       run: |
         cd audits
-        yarn audit-ch-1
+        bun audit-ch-1
 
     - name: Review Challenge - 2
       if: always()
       run: |
         cd audits
-        yarn audit-ch-2
+        bun audit-ch-2
 
     - name: Review Challenge - 3
       if: always()
       run: |
         cd audits
-        yarn audit-ch-3
+        bun audit-ch-3
 
     - name: Report Audits
       if: always()
