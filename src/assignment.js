@@ -14,11 +14,8 @@
  */
 export function sumOfNumbersTo(destination) {
     console.log(destination)
-    const sum = 0
-
     // write your code here
-
-    return sum
+    return 0
 }
 
 /**
@@ -39,9 +36,6 @@ export function evenNumbersWithin(destination) {
     // write your code here
 
     return {
-        // property value shorthand
-        // when the property name and the value name are the same
-        // you can just write the property name in your object
         count,
         sum,
         arrayOfEvenNumbers,
