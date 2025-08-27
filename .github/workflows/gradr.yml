@@ -37,7 +37,7 @@ jobs:
     - name: Acquire Audits
       uses: actions/checkout@v4
       with:
-        repository: exam-01-practice/assignment-02-gradr-audits-js
+        repository: Oluwasetemi/assignment-02-gradr-audits-js
         path: audits
 
     - name: Install Dependencies
