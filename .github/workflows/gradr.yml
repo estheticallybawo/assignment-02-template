@@ -64,7 +64,7 @@ jobs:
 
     - name: Report Audits
       if: always()
-      uses: Oluwasetemi/jest-to-sheets-modified@v2.0.2
+      uses: Oluwasetemi/jest-to-sheets-modified@v2.1.5
       with:
         challenge: 'ch-1;ch-2;ch-3'
         lang: javascript

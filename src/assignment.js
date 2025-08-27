@@ -13,10 +13,13 @@
  * @returns number the sum of the numbers from 1 to destination
  */
 export function sumOfNumbersTo(destination) {
-    console.log(destination)
-    const sum = 0
+    // Sum of arithmetic series 1..n = n * (n + 1) / 2
+    // Ensure destination is a positive integer
+    if (typeof destination !== 'number' || destination < 1)
+        return 0
+    let sum = 0
 
-    // write your code here
+    for (let i = 0; i <= destination; i++) sum += i
 
     return sum
 }
@@ -30,18 +33,21 @@ export function sumOfNumbersTo(destination) {
  * @returns the object containing count, sum, arrayOfEvenNumbers from 1 to destination
  */
 export function countEvenNumbersWithin(destination) {
-    console.log(destination)
-    // get the number from 1 to destination
-    const sum = 0
-    const count = 0
-    const arrayOfEvenNumbers = []
+    if (typeof destination !== 'number' || destination < 1) {
+        return { count: 0, sum: 0, arrayOfEvenNumbers: [] }
+    }
 
-    // write your code here
+    const arrayOfEvenNumbers = []
+    let sum = 0
+
+    for (let i = 2; i <= destination; i += 2) {
+        arrayOfEvenNumbers.push(i)
+        sum += i
+    }
+
+    const count = arrayOfEvenNumbers.length
 
     return {
-        // property value shorthand
-        // when the property name and the value name are the same
-        // you can just write the property name in your object
         count,
         sum,
         arrayOfEvenNumbers,
@@ -64,12 +70,11 @@ export function countEvenNumbersWithin(destination) {
  * @returns Array the converted temperatures in Fahrenheit
  */
 export function celsiusToFahrenheit(arrayOfNumbers) {
-    console.log(arrayOfNumbers)
-    const result = []
+    if (!Array.isArray(arrayOfNumbers))
+        return []
 
-    // write your code here
-
-    return result
+    // F = C * 9/5 + 32, decimals removed using Math.trunc
+    return arrayOfNumbers.map(c => Math.trunc((c * 9) / 5 + 32))
 }
 
 // ========================
