@@ -14,8 +14,16 @@
  */
 export function sumOfNumbersTo(destination) {
     console.log(destination)
+
+
     // write your code here
-    return 0
+    let sum = 0;
+    // Loop from 1 to destination (inclusive)
+    for (let i = 1; i <= destination; i++) {
+        sum += i;
+    }
+
+    return sum;
 }
 
 /**
@@ -34,7 +42,13 @@ export function evenNumbersWithin(destination) {
     const arrayOfEvenNumbers = []
 
     // write your code here
-
+    for (let i = 0; i <= destination; i++) {
+        if (i % 2 === 0) {
+            arrayOfEvenNumbers.push(i);
+            sum += i;   // updates sum directly
+            count++;    // updates count directly
+        }
+    }
     return {
         count,
         sum,
@@ -60,8 +74,13 @@ export function celsiusToFahrenheit(arrayOfNumbers) {
     const result = []
 
     // write your code here
+    for (let celsius of arrayOfNumbers) {
+        const fahrenheit = (celsius * 9 / 5) + 32;
+        result.push(Math.trunc(fahrenheit));
+    }
 
-    return result
+    return result;
+
 }
 
 /**
@@ -81,6 +100,13 @@ export function oddNumbersWithin(destination) {
     const arrayOfOddNumbers = []
 
     // write your code here
+    for (let i = 0; i <= destination; i++) {
+        if (i % 2 !== 0) {       // odd number check
+            arrayOfOddNumbers.push(i);
+            sum += i;
+            count++;
+        }
+    }
 
     return {
         count,
@@ -107,6 +133,14 @@ export function findMultiples(arrayOfNumbers, factor) {
 
     // write your code here
 
+    for (let num of arrayOfNumbers) {
+        if (num % factor === 0) {  // multiples check
+            arrayOfMultiples.push(num);
+            sum += num;
+            count++;
+        }
+    }
+
     return {
         count,
         sum,
@@ -131,6 +165,19 @@ export function calculateFactorials(arrayOfNumbers) {
 
     // write your code here
 
+    for (let num of arrayOfNumbers) {
+        if (num < 0) {
+            result.push(0);   // factorial for negative numbers is 0
+        } else if (num === 0) {
+            result.push(1);
+        } else {
+            let factorial = 1;
+            for (let i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+            result.push(factorial);
+        }
+    }
     return result
 }
 
@@ -151,6 +198,17 @@ export function findPrimeNumbers(arrayOfNumbers) {
     const arrayOfPrimes = []
 
     // write your code here
+    function isPrime(num) {
+        if (num <= 1) return false; // primes are > 1
+        if (num === 2) return true; // 2 is prime
+        if (num % 2 === 0) return false; // even numbers > 2 are not prime
+
+        // check divisors up to sqrt(num)
+        for (let i = 3; i <= Math.sqrt(num); i += 2) {
+            if (num % i === 0) return false;
+        }
+        return true;
+    }
 
     return {
         count,
@@ -172,7 +230,9 @@ export function doubleTheValues(arrayOfNumbers) {
     const result = []
 
     // write your code here
-
+    for (let num of arrayOfNumbers) {
+        result.push(num * 2);
+    }
     return result
 }
 
