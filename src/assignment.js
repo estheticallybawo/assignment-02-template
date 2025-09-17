@@ -37,9 +37,9 @@ export function sumOfNumbersTo(destination) {
 export function evenNumbersWithin(destination) {
     console.log(destination)
     // get the number from 0 to destination
-    const sum = 0
-    const count = 0
-    const arrayOfEvenNumbers = []
+    let sum = 0
+    let count = 0
+    let arrayOfEvenNumbers = []
 
     // write your code here
     for (let i = 0; i <= destination; i++) {
@@ -95,9 +95,9 @@ export function celsiusToFahrenheit(arrayOfNumbers) {
 export function oddNumbersWithin(destination) {
     console.log(destination)
     // get the number from 0 to destination
-    const sum = 0
-    const count = 0
-    const arrayOfOddNumbers = []
+    let sum = 0
+    let count = 0
+    let arrayOfOddNumbers = []
 
     // write your code here
     for (let i = 0; i <= destination; i++) {
@@ -127,9 +127,9 @@ export function oddNumbersWithin(destination) {
  */
 export function findMultiples(arrayOfNumbers, factor) {
     console.log(arrayOfNumbers, factor)
-    const sum = 0
-    const count = 0
-    const arrayOfMultiples = []
+    let sum = 0
+    let count = 0
+    let arrayOfMultiples = []
 
     // write your code here
 
@@ -193,22 +193,27 @@ export function calculateFactorials(arrayOfNumbers) {
  */
 export function findPrimeNumbers(arrayOfNumbers) {
     console.log(arrayOfNumbers)
-    const sum = 0
-    const count = 0
-    const arrayOfPrimes = []
+    let sum = 0
+    let count = 0
+    let arrayOfPrimes = []
 
     // write your code here
     function isPrime(num) {
-        if (num <= 1) return false; // primes are > 1
-        if (num === 2) return true; // 2 is prime
-        if (num % 2 === 0) return false; // even numbers > 2 are not prime
-
-        // check divisors up to sqrt(num)
-        for (let i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num < 2) return false; // primes are >= 2
+        for (let i = 2; i <= Math.sqrt(num); i++) {
             if (num % i === 0) return false;
         }
         return true;
     }
+
+    for (let num of arrayOfNumbers) {
+        if (isPrime(num)) {
+            arrayOfPrimes.push(num);
+            sum += num;
+            count++;
+        }
+    }
+
 
     return {
         count,
